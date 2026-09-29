@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171916">
+  <meta name="description" content="Sinuca, música ao vivo, bons drinks e porções para dividir. Conheça o Hora Bolas Club, em Lavras, MG.">
+  <title>Hora Bolas Club | A noite pede uma boa partida</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #171916;
+      --ink-soft: #20231f;
+      --paper: #f3efdf;
+      --muted: #b8b9ae;
+      --coral: #ef674e;
+      --lime: #c9df70;
+      --line: rgba(243, 239, 223, .18);
+      --display: "Barlow Condensed", Impact, sans-serif;
+      --body: "DM Sans", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--body); }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { color: var(--lime); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .display { font-family: var(--display); font-weight: 700; text-transform: uppercase; }
+
+    .site-header { position: absolute; inset: 0 0 auto; z-index: 5; border-bottom: 1px solid rgba(255,255,255,.2); }
+    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+    .brand-mark { width: 36px; aspect-ratio: 1; display: grid; place-items: center; border: 2px solid var(--lime); border-radius: 50%; color: var(--lime); font: 700 18px var(--display); }
+    .brand-name { font: 700 22px/.85 var(--display); letter-spacing: .02em; text-transform: uppercase; }
+    .brand-name small { display: block; margin-top: 5px; color: var(--lime); font: 600 10px var(--body); letter-spacing: .17em; }
+    .main-nav { display: flex; align-items: center; gap: 30px; }
+    .main-nav a { font-size: 13px; text-decoration: none; color: rgba(255,255,255,.86); transition: color .2s; }
+    .main-nav a:hover { color: var(--lime); }
+    .header-cta, .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 19px; border: 0; background: var(--lime); color: var(--ink); font: 700 12px var(--body); text-decoration: none; text-transform: uppercase; letter-spacing: .04em; transition: transform .2s, background .2s; }
+    .header-cta:hover, .button:hover { transform: translateY(-2px); background: #d8eb91; }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--line); background: transparent; color: var(--paper); font-size: 20px; cursor: pointer; }
+
+    .hero { min-height: 700px; min-height: min(820px, 100svh); display: flex; align-items: center; position: relative; isolation: isolate; overflow: hidden; background: #29291f; }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=2200&q=88") center 53% / cover; transform: scale(1.02); }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(17,20,17,.91) 0%, rgba(17,20,17,.76) 37%, rgba(17,20,17,.15) 78%), linear-gradient(0deg, rgba(17,20,17,.55), transparent 48%); }
+    .hero-content { padding-top: 88px; max-width: 670px; }
+    .hero-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 20px; color: var(--lime); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .13em; }
+    .hero-kicker::before { content: ""; width: 27px; height: 2px; background: var(--coral); }
+    h1 { max-width: 650px; margin: 0; font: 800 clamp(68px, 10vw, 126px)/.79 var(--display); letter-spacing: 0; text-transform: uppercase; }
+    h1 span { color: var(--coral); }
+    .hero-copy { max-width: 440px; margin: 25px 0 28px; color: rgba(255,255,255,.86); font-size: 16px; line-height: 1.65; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .button-coral { background: var(--coral); color: #1b1915; }
+    .button-coral:hover { background: #ff8067; }
+    .button-quiet { border: 1px solid rgba(255,255,255,.62); background: rgba(23,25,22,.2); color: white; }
+    .button-quiet:hover { background: rgba(255,255,255,.13); }
+    .hero-note { position: absolute; right: max(24px, calc((100vw - 1160px) / 2)); bottom: 40px; display: flex; align-items: center; gap: 12px; color: white; font-size: 11px; text-transform: uppercase; letter-spacing: .09em; }
+    .hero-note span { display: grid; width: 42px; aspect-ratio: 1; place-items: center; border: 1px solid rgba(255,255,255,.68); border-radius: 50%; color: var(--lime); font-size: 17px; }
+
+    .quick-facts { background: var(--lime); color: var(--ink); }
+    .facts-inner { min-height: 94px; display: grid; grid-template-columns: 1.1fr 1fr 1fr 1.2fr; align-items: center; }
+    .fact { display: flex; align-items: center; gap: 12px; min-height: 44px; padding-inline: 24px; border-left: 1px solid rgba(23,25,22,.22); }
+    .fact:first-child { padding-left: 0; border-left: 0; }
+    .fact strong { display: block; font-size: 14px; }
+    .fact small { display: block; margin-top: 3px; font-size: 11px; opacity: .76; }
+    .fact-icon { color: #bf4935; font-size: 20px; font-weight: 700; }
+
+    section { scroll-margin-top: 30px; }
+    .experience { padding: 112px 0 118px; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 34px; }
+    .section-heading h2, .visit-copy h2 { margin: 9px 0 0; font: 700 clamp(42px, 6vw, 68px)/.9 var(--display); text-transform: uppercase; }
+    .section-heading > p { max-width: 370px; margin: 0 0 4px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .experience-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 18px; }
+    .experience-card { min-height: 365px; position: relative; display: flex; align-items: end; overflow: hidden; background: var(--ink-soft); }
+    .experience-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .experience-card:hover img { transform: scale(1.04); }
+    .experience-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(15,17,15,.91), transparent 73%); }
+    .card-copy { position: relative; z-index: 1; padding: 28px; }
+    .card-copy span { color: var(--lime); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .card-copy h3 { margin: 8px 0 7px; font: 700 38px/.95 var(--display); text-transform: uppercase; }
+    .card-copy p { max-width: 400px; margin: 0; color: rgba(255,255,255,.8); font-size: 13px; line-height: 1.55; }
+
+    .menu-feature { padding: 84px 0; background: var(--paper); color: var(--ink); }
+    .menu-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 72px; }
+    .menu-feature .eyebrow { color: #bd4e3c; }
+    .menu-copy h2 { margin: 10px 0 14px; font: 700 clamp(48px, 6vw, 76px)/.84 var(--display); text-transform: uppercase; }
+    .menu-copy > p { max-width: 380px; color: #565950; font-size: 14px; line-height: 1.7; }
+    .menu-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 17px; padding-bottom: 8px; border-bottom: 1px solid currentColor; font-size: 12px; font-weight: 700; text-decoration: none; text-transform: uppercase; }
+    .drink-list { border-top: 1px solid rgba(23,25,22,.28); }
+    .drink-row { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 22px; border-bottom: 1px solid rgba(23,25,22,.28); }
+    .drink-row h3 { margin: 0; font: 700 30px var(--display); text-transform: uppercase; }
+    .drink-row p { margin: 3px 0 0; color: #5f6258; font-size: 12px; }
+    .drink-mark { width: 38px; aspect-ratio: 1; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid #adb786; border-radius: 50%; color: #4b5b29; font-size: 16px; }
+
+    .visit { padding: 106px 0; }
+    .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .visit-copy h2 { max-width: 470px; }
+    .visit-copy > p { max-width: 430px; margin: 18px 0 25px; color: var(--muted); font-size: 14px; line-height: 1.75; }
+    .address { display: flex; align-items: start; gap: 13px; margin: 0 0 20px; font-size: 13px; line-height: 1.6; }
+    .address b { color: var(--coral); font-size: 18px; }
+    .visit-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .visit-photo { min-height: 390px; position: relative; background: #363e2e; }
+    .visit-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .visit-photo::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(243,239,223,.35); transform: translate(12px, 12px); pointer-events: none; }
+    .visit-tag { position: absolute; z-index: 1; right: 0; bottom: 0; padding: 14px 18px; background: var(--coral); color: var(--ink); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+
+    .review-band { padding: 31px 0; border-block: 1px solid var(--line); }
+    .review-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .review-inner blockquote { margin: 0; font: 600 24px/1.2 var(--display); text-transform: uppercase; }
+    .review-score { display: flex; align-items: center; gap: 11px; white-space: nowrap; }
+    .stars { color: var(--lime); font-size: 15px; letter-spacing: 0; }
+    .review-score strong { font-size: 14px; }
+    .review-score small { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+
+    footer { padding: 34px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .footer-inner p { margin: 0; color: var(--muted); font-size: 11px; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 11px; text-decoration: none; }
+    .footer-links a:hover { color: var(--lime); }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      .header-inner { min-height: 70px; }
+      .menu-toggle { display: block; margin-left: auto; }
+      .header-cta { display: none; }
+      .main-nav { position: absolute; inset: 70px 0 auto; display: none; padding: 18px 24px 22px; flex-direction: column; align-items: start; gap: 18px; background: var(--ink); border-bottom: 1px solid var(--line); }
+      .main-nav.is-open { display: flex; }
+      .hero { min-height: 730px; min-height: max(700px, 92svh); }
+      .hero::before { background-position: 59% center; }
+      .hero::after { background: linear-gradient(90deg, rgba(17,20,17,.88), rgba(17,20,17,.43)), linear-gradient(0deg, rgba(17,20,17,.62), transparent 70%); }
+      .hero-content { padding-top: 48px; }
+      h1 { font-size: clamp(70px, 17vw, 105px); }
+      .hero-copy { max-width: 360px; font-size: 14px; }
+      .hero-note { right: 18px; bottom: 19px; font-size: 9px; }
+      .facts-inner { grid-template-columns: 1fr 1fr; padding-block: 14px; }
+      .fact { padding: 12px 10px; border-left: 0; }
+      .fact:nth-child(even) { border-left: 1px solid rgba(23,25,22,.22); }
+      .fact:first-child { padding-left: 10px; }
+      .experience, .visit { padding: 78px 0; }
+      .section-heading { display: block; }
+      .section-heading > p { margin-top: 18px; }
+      .experience-grid, .menu-grid, .visit-grid { grid-template-columns: 1fr; gap: 28px; }
+      .experience-card { min-height: 320px; }
+      .menu-feature { padding: 72px 0; }
+      .menu-grid { gap: 30px; }
+      .menu-copy h2 { font-size: 61px; }
+      .visit-photo { min-height: 310px; margin-right: 12px; }
+      .review-inner { align-items: start; flex-direction: column; }
+      .review-inner blockquote { font-size: 22px; }
+      .footer-inner { align-items: start; flex-direction: column; }
+      .footer-links { flex-wrap: wrap; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inicio" aria-label="Hora Bolas Club, início">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span class="brand-name">Hora Bolas<small>Club · Lavras, MG</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">+</button>
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <a href="#experiencia">A casa</a>
+        <a href="#cardapio">Drinks & sabores</a>
+        <a href="#visite">Como chegar</a>
+      </nav>
+      <a class="header-cta" href="https://wa.me/5535997694832?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva%20no%20Hora%20Bolas%20Club." target="_blank" rel="noreferrer">Faça sua reserva <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="wrap hero-content">
+        <p class="hero-kicker">Seu ponto de encontro em Lavras</p>
+        <h1 id="hero-title">A noite pede<br>uma boa <span>partida.</span></h1>
+        <p class="hero-copy">Mesa de sinuca, música no clima, cerveja gelada e aquele drink que muda os planos da noite.</p>
+        <div class="hero-actions">
+          <a class="button button-coral" href="https://wa.me/5535997694832?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva%20no%20Hora%20Bolas%20Club." target="_blank" rel="noreferrer">Reservar uma mesa <span aria-hidden="true">↗</span></a>
+          <a class="button button-quiet" href="#experiencia">Conheça a casa <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-note"><span aria-hidden="true">8</span> Uma tacada de cada vez</div>
+    </section>
+
+    <section class="quick-facts" aria-label="Informações rápidas">
+      <div class="wrap facts-inner">
+        <div class="fact"><span class="fact-icon" aria-hidden="true">★</span><div><strong>4,5 de 5</strong><small>255 avaliações</small></div></div>
+        <div class="fact"><span class="fact-icon" aria-hidden="true">R$</span><div><strong>R$ 60–80</strong><small>por pessoa</small></div></div>
+        <div class="fact"><span class="fact-icon" aria-hidden="true">17h</span><div><strong>A partir das 17h</strong><small>consulte o horário do dia</small></div></div>
+        <div class="fact"><span class="fact-icon" aria-hidden="true">⌖</span><div><strong>Esplanada, Lavras</strong><small>R. dos Expedicionários, 145</small></div></div>
+      </div>
+    </section>
+
+    <section class="experience" id="experiencia">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><span class="eyebrow">Mais que um bar</span><h2>Chega junto.<br>Fica à vontade.</h2></div>
+          <p>Tem noite que pede conversa, tem noite que pede música alta. Aqui, cada visita encontra seu próprio ritmo.</p>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card">
+            <img src="https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?auto=format&fit=crop&w=1200&q=82" alt="Mesa de sinuca pronta para uma partida" loading="lazy">
+            <div class="card-copy"><span>Desafie a turma</span><h3>A próxima é sua.</h3><p>Sinuca, jogos de bar e espaço para curtir sem olhar o relógio.</p></div>
+          </article>
+          <article class="experience-card">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=82" alt="Público aproveitando música e show ao vivo" loading="lazy">
+            <div class="card-copy"><span>O som da noite</span><h3>Ao vivo, de verdade.</h3><p>Música, shows e karaokê para transformar encontro em história.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-feature" id="cardapio">
+      <div class="wrap menu-grid">
+        <div class="menu-copy">
+          <span class="eyebrow">Um brinde ao agora</span>
+          <h2>Vai de<br>clássico ou<br>surpreende?</h2>
+          <p>Drinks bem feitos, cervejas para todos os gostos e porções para dividir com a mesa toda.</p>
+          <a class="menu-link" href="https://horabolasclub.com.br" target="_blank" rel="noreferrer">Ver o cardápio completo <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="drink-list" aria-label="Destaques do cardápio">
+          <article class="drink-row"><div><h3>Aperol Spritz</h3><p>Leve, cítrico, com cara de começo de noite.</p></div><span class="drink-mark" aria-hidden="true">01</span></article>
+          <article class="drink-row"><div><h3>Mojito</h3><p>Hortelã fresca, limão e refrescância na medida.</p></div><span class="drink-mark" aria-hidden="true">02</span></article>
+          <article class="drink-row"><div><h3>Cerveja gelada</h3><p>O clássico que sempre combina com mais uma.</p></div><span class="drink-mark" aria-hidden="true">03</span></article>
+          <article class="drink-row"><div><h3>Porções para a mesa</h3><p>Peça, passe adiante e aproveite o momento.</p></div><span class="drink-mark" aria-hidden="true">04</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visite">
+      <div class="wrap visit-grid">
+        <div class="visit-copy">
+          <span class="eyebrow">A gente te espera</span>
+          <h2>Seu lugar é aqui.</h2>
+          <p>Chama os amigos, combina a partida e vem. Aceitamos reservas para sua noite começar sem complicação.</p>
+          <p class="address"><b aria-hidden="true">⌖</b><span>R. dos Expedicionários, 145<br>Esplanada · Lavras, MG · 37200-000</span></p>
+          <div class="visit-actions">
+            <a class="button button-coral" href="https://www.google.com/maps/search/?api=1&query=Hora+Bolas+Club%2C+R.+dos+Expedicion%C3%A1rios%2C+145%2C+Lavras%2C+MG" target="_blank" rel="noreferrer">Abrir no mapa <span aria-hidden="true">↗</span></a>
+            <a class="button button-quiet" href="tel:+5535997694832">Ligar: (35) 99769-4832</a>
+          </div>
+        </div>
+        <div class="visit-photo">
+          <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=84" alt="Drinks coloridos servidos no balcão do bar" loading="lazy">
+          <span class="visit-tag">Hoje tem Hora Bolas</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-band" aria-label="Avaliação dos clientes">
+      <div class="wrap review-inner">
+        <blockquote>“Ambiente super agradável, música boa e ótimas porções!”</blockquote>
+        <div class="review-score"><span class="stars" aria-label="5 estrelas">★★★★★</span><div><strong>4,5 / 5</strong><small>255 avaliações no Google</small></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="brand" href="#inicio" aria-label="Hora Bolas Club, voltar ao início"><span class="brand-mark" aria-hidden="true">H</span><span class="brand-name">Hora Bolas<small>Club · Lavras, MG</small></span></a>
+      <p>R. dos Expedicionários, 145 · Lavras, MG</p>
+      <div class="footer-links"><a href="https://www.instagram.com/horabolasclub/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://horabolasclub.com.br" target="_blank" rel="noreferrer">Site oficial ↗</a><a href="tel:+5535997694832">(35) 99769-4832</a></div>
+    </div>
+  </footer>
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Abrir menu' : 'Fechar menu');
+      menuToggle.textContent = isOpen ? '+' : '×';
+      mainNav.classList.toggle('is-open', !isOpen);
+    });
+
+    mainNav.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menu');
+        menuToggle.textContent = '+';
+        mainNav.classList.remove('is-open');
+      }
+    });
+  </script>
+</body>
+</html>
